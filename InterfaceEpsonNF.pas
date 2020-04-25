@@ -1,0 +1,62 @@
+unit InterfaceEpsonNF;
+
+interface
+function ConfiguraTaxaSerial (dwTaxa:Integer):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+Function IniciaPorta (pszPorta:Pchar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function FechaPorta ():Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeTexto(pszTexto:Pchar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeTextoTag(pszTexto:Pchar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function FormataTX(psxTexto:PChar; dwTipoLetra:Integer; dwItalico:Integer; dwSublinhado:Integer; dwExpandido:Integer; dwEnfatizado:Integer):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function AcionaGuilhotina (dwTipoCorte:Integer):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ComandoTX( pszComando:PChar; dwTamanho:Integer):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function Le_Status():Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function Le_Status_Gaveta ():Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ConfiguraCodigoBarras (dwAltura:Integer; dwLargura:Integer; dwHRI:Integer; dwFonte:Integer; dwMargem:Integer):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasCODABAR(pszCodigo:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasCODE128 (pszCodigo:PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasCODE39( pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasCODE93( pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasEAN13( pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasEAN8( pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasITF( pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasUPCA( pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasUPCE( pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoBarrasPDF417( dwCorrecao:Integer; dwAltura:Integer; dwLargura:Integer; dwColunas:Integer; pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCodigoQRCODE(dwRestauracao:Integer; dwModulo:Integer; dwTipo:Integer; dwVersao:Integer; dwModo:Integer; pszCodigo:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function GerarQRCodeArquivo(pszFileName:PChar; pszDados:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeBmpEspecial(pszFileName:PChar; dwX:Integer; dwY:Integer; dwAngulo:Integer):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function Habilita_Log(dwEstado:Integer; pszCaminho:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeCheque(szIndice:PChar; szValor:PChar; szData:PChar; szPara:PChar; szCidade:PChar; szAdicional:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function ImprimeAutenticacao(pszPosX:PChar; pszPosY:PChar; pszLinhaTexto:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function LeMICR(pszCodigo:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function LeModelo(pszModelo:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function Le_Status_Slip(pszFlags:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function AcionaGaveta():Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Imprimir(szXML:PChar; szTipo:PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_SAT_Imprimir(szXML:PChar; szTipo:PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_SAT_Imprimir_Cancelamento(szXML:PChar; szQRCodeVenda:PChar; szTeste:PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Abrir (szCPF:PChar; szNome:PChar; szEndereco:PChar; szNumero:PChar; szBairro:PChar; szCodMunicipio:PChar; szMunicipio:PChar; szUF:PChar; szCep:PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_AbrirEX (szCPF:PChar; szNome:PChar; szEndereco:PChar; szNumero:PChar; szBairro:PChar; szCodMunicipio:PChar; szMunicipio:PChar; szUF:PChar; szCep:PChar; szNum:PChar; szSerie:PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Vender_Item(szCodigo:PChar; szDescricao:PChar; szQuantidade:PChar; szCasasDecimaisQuantidade:PChar; szUnidadeDeMedida:PChar; szPrecoUnidade:PChar; szCasasDecimaisPreco:PChar; szAliquotas:PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Vender_ItemEX(szCodigo:PChar; szDescricao:PChar; szQuantidade:PChar; szCasasDecimaisQuantidade:PChar; szUnidadeDeMedida:PChar; szPrecoUnidade:PChar; szCasasDecimaisPreco:PChar; szAliquotas:PChar; szNCM: PChar; szCST: PChar; szPIS: PChar; szCOFINS: PChar; szCFOP: PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Desconto_Acrescimo_Item (szNumeroItem: PChar; szOperacao: PChar; szTipo: PChar; szValor: PChar; szCasasDecimaisValor: PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Cancelar_Item(szNumeroItem:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Cancelar_Item_Parcial(szNumeroItem:Pchar; szQuantidade:Pchar; szCasasDecimaisQuantidade:PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Cancelar_Desconto_Acrescimo_Item(szNumeroItem:Pchar; szOperacao:Pchar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Pagamento(szFormaPagamento:Pchar; szValor:Pchar; szCasasDecimaisValor:Pchar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Estorno_Pagamento(szEstornada:Pchar; szEfetivada:Pchar; szValor:Pchar; szCasasDecimaisValor:Pchar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Dados_Consumidor( szCPF: PChar; szNome: PChar; szEndereco: PChar; szNumero: PChar; szBairro: PChar; szCodMunicipio: PChar; szMunicipio: PChar; szUF: PChar; szCep: PChar; szEmail: PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Dados_Lei_Imposto (szValorMunicipal: PChar; szPercMun: PChar; szValorEstadual: PChar; szPercEst: PChar; szValorFederal: PChar; szPercFed: PChar; szUF: PChar; szTabela: PChar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Dados_Lei_ImpostoEX (szMensagem:Pchar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Fechar(szImprime:Pchar):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Reimprimir():Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Cancelar(szNumero: PChar; szSerie: PChar; szChave: PChar; szProtocolo: PChar; szJustificativa: PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Inutilizar_Numeros( szInicial: PChar; szFinal: PChar; szSerie: PChar; szJustificativa: PChar ):Integer; StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Obter_Erro (szCodigo:PChar; szDescricao:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Obter_Estado(szEstado:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Verifica_Servidor(szEstado:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Imprimir_Mensagem(szMensagem:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+function EPSON_NFCe_Obter_Informacao (szIndice:PChar; szInformacao:PChar):Integer;StdCall; External 'InterfaceEpsonNF.dll';
+implementation
+
+end.
